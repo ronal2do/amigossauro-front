@@ -11,41 +11,55 @@ class Header extends React.Component {
       isCollapsed: false
     }
 
-   componentDidMount = () => {
-     global.addEventListener('scroll', this.handleScroll);
-   }
+    componentDidMount() {
+       let sticky = document.querySelector('.sticky');
 
-   componentWillUnmount = () => {
-     global.removeEventListener('scroll', this.handleScroll);
-   }
+        if (sticky.style.position !== 'sticky') {
+          let stickyTop = sticky.offsetTop;
 
-   handleScroll = () => {
-     const {isToggleOn} = this.state;
+          document.addEventListener('scroll', function () {
+            window.scrollY >= stickyTop ?
+              sticky.classList.add('navbar-fixed-top') :
+              sticky.classList.remove('navbar-fixed-top');
+          });
+        }
+    }
 
-    //  let stickyOff = document.querySelector('.sticky').offsetTop;
+  //  componentDidMount = () => {
+  //    global.addEventListener('scroll', this.handleScroll);
+  //  }
+   //
+  //  componentWillUnmount = () => {
+  //    global.removeEventListener('scroll', this.handleScroll);
+  //  }
 
-     if (window.scrollY > 750 && !isToggleOn) {
-       console.log('<');
-       console.log(isToggleOn);
-       this.setState({
-         isToggleOn: true,
-       });
-     }
-     else if (window.scrollY < 750 && isToggleOn) {
-       console.log('>');
-       console.log(false);
-       this.setState({
-         isToggleOn: false,
-       });
-     }
+  //  handleScroll = () => {
+  //    const {isToggleOn} = this.state;
+   //
+  //   //  let stickyOff = document.querySelector('.sticky').offsetTop;
+   //
+  //    if (window.scrollY > 750 && !isToggleOn) {
+  //     //  console.log('<');
+  //     //  console.log(isToggleOn);
+  //      this.setState({
+  //        isToggleOn: true,
+  //      });
+  //    }
+  //    else if (window.scrollY < 750 && isToggleOn) {
+  //     //  console.log('>');
+  //     //  console.log(false);
+  //      this.setState({
+  //        isToggleOn: false,
+  //      });
+  //    }
+   //
+  //  }
 
-   }
-
-   handleMenu() {
-     this.setState(prevState => ({
+  handleMenu() {
+    this.setState(prevState => ({
       isCollapsed: !prevState.isCollapsed
     }));
-   }
+  }
 
   handleClick() {
     this.setState({
