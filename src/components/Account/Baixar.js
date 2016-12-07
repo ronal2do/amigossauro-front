@@ -21,13 +21,13 @@ class Baixar extends React.Component {
   render() {
     const baixar = this.props.token ? (
       <p><br />
-        <a className="btn btn-newsletter" href={'/download/' + this.props.file } name={this.props.file} download>
+        <a className="btn btn-newsletter" href={`/upload-folder/`+ this.props.file + `.pdf`} name={this.props.file} download>
             <FontAwesome
               className='fa-fw'
               name='download'
             />
-            Baixar
-            </a>
+          Baixar
+        </a>
       </p>
     ) : (
       <p><br />

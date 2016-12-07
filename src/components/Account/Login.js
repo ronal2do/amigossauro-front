@@ -66,7 +66,8 @@ class Login extends React.Component {
           </div>
         </div>
         <p className="text-center">
-          Don't have an account? <Link to="/signup"><strong>Entrar</strong></Link>
+          Don't have an account?
+          <Link to="/signup"><strong>Entrar</strong></Link>
         </p>
       </div>
     );
