@@ -9,6 +9,9 @@ import Card from './Cards-old';
 import Newsletter from '../Newsletter/Newsletter';
 import Baixar from '../Account/Baixar';
 
+import circuloDeco from '../../images/circulo-deco.png';
+import circuloDana from '../../images/circulo-dana.png';
+import circuloDim from '../../images/circulo-dim.png';
 
 
 class Single extends React.Component {
@@ -85,9 +88,9 @@ class Single extends React.Component {
   }
   render() {
     const Botoes = [
-      {file:"papertoy_deco",name:"Paper Toy Deco",src:"circulo-deco"},
-      {file:"papertoy_dana",name:"Paper Toy Dana",src:"circulo-dana"},
-      {file:"papertoy_dim",name:"Paper Toy Dim",src:"circulo-dim"}
+      {file:"papertoy_deco", name:"Paper Toy Deco", src:`${circuloDeco}`},
+      {file:"papertoy_dana", name:"Paper Toy Dana", src:`${circuloDana}`},
+      {file:"papertoy_dim", name:"Paper Toy Dim", src:`${circuloDim}`}
     ].map((Botoes, i) =>
         <Card
           key={i}

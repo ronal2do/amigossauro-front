@@ -1,11 +1,13 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
+
 import App from './components/App';
 import Site from './components/Site';
 import Home from './components/Home';
 import Politica from './components/Politica';
 import Contact from './components/Contact';
 import Amizade from './components/Amizade';
+
 import Downloads from './components/Downloads/Index';
 import Jogos from './components/Downloads/Single';
 import Colorir from './components/Downloads/Colorir';

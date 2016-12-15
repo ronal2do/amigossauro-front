@@ -4088,6 +4088,10 @@ node-emoji@^1.4.1:
   dependencies:
     string.prototype.codepointat "^0.2.0"
 
+node-ensure@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/node-ensure/-/node-ensure-0.0.0.tgz#ecae764150de99861ec5c810fd5d096b183932a7"
+
 node-fetch@^1.0.1:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
@@ -4431,6 +4435,12 @@ path-type@^1.0.0:
 pbkdf2-compat@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pbkdf2-compat/-/pbkdf2-compat-2.0.1.tgz#b6e0c8fa99494d94e0511575802a59a5c142f288"
+
+pdfjs-dist@^1.5.296:
+  version "1.6.401"
+  resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-1.6.401.tgz#9404bf3ae53dc22ff324f4e2b19aef476f52db79"
+  dependencies:
+    node-ensure "^0.0.0"
 
 pend@~1.2.0:
   version "1.2.0"
@@ -4921,6 +4931,16 @@ react-fontawesome@^1.4.0:
 react-owl-carousel@^0.14.0:
   version "0.14.0"
   resolved "http://registry.npmjs.org/react-owl-carousel/-/react-owl-carousel-0.14.0.tgz#450fdceb5ffee338479fdc9ef2dbbb420064d521"
+
+react-pdf@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/react-pdf/-/react-pdf-0.0.10.tgz#57b827c03143d7b82eb8b5a3d545703ec39a8764"
+
+react-pdfjs@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-pdfjs/-/react-pdfjs-1.0.7.tgz#844b36c064b072e4057f9b51e7035ad07e4cf906"
+  dependencies:
+    pdfjs-dist "^1.5.296"
 
 react-redux@^4.4.6:
   version "4.4.6"
