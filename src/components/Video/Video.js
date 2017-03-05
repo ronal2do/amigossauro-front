@@ -9,7 +9,8 @@ export default class Video extends React.Component {
 		       	<div className="embed-responsive embed-responsive-16by9">
 				    <iframe
 				    	className="embed-responsive-item"
-				    	src={'//www.youtube.com/embed/' + video.id}
+              src={`//www.youtube.com/embed/${video.id}`}
+				    	// src={`//www.youtube.com/embed/${video.id}?autoplay=1`}
 				    ></iframe>
 				</div>
 	      </div>
