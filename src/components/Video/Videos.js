@@ -5,75 +5,78 @@ import OwlCarousel from 'react-owl-carousel';
 import Item from './Item';
 import Video from './Video';
 
-  const videoIdA = "VadjvlvBDxE";
-	const videoIdB = "VVS2tqpXiZ0";
-	const videoIdC = "c_yomf6U35A";
-	const videoIdD = "WIksma_8Ka4";
-	const videoIdE = "hsfA4kTdltE";
-  const videoIdF = "bgVz5fJeI40";
-  const videoIdG = "nmw6nnQ9OnU";
-	const videoIdH = "tvZQxAnMrX4";
-
-	const AUTOPLAY = "?autoplay=1";
+// const AUTOPLAY = "?autoplay=1";
 
 export default class Videos extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+      video: '',
+      videos: [],
+      isLoading: true,
+  };
 
-    this.state = {
-        videoId: props.initial
-    };
+  async componentDidMount() {
+     try {
+       await this.getVideos();
 
-    this.onChangeVideo  = this.onChangeVideo.bind(this);
-    this.onChangeVideoB = this.onChangeVideoB.bind(this);
-    this.onChangeVideoC = this.onChangeVideoC.bind(this);
-    this.onChangeVideoD = this.onChangeVideoD.bind(this);
-    this.onChangeVideoE = this.onChangeVideoE.bind(this);
-    this.onChangeVideoF = this.onChangeVideoF.bind(this);
-    this.onChangeVideoG = this.onChangeVideoG.bind(this);
-    this.onChangeVideoH = this.onChangeVideoH.bind(this);
+       const { videos } = this.state;
+
+       this.setState({
+         video: videos[0],
+       });
+
+     } catch (e) {
+       console.warn('Err ', e);
+     }
+
+   }
+
+  onChangeVideo = (video) => {
+  	this.setState({
+      video
+    })
   }
 
-  onChangeVideo(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdA + AUTOPLAY})
-  }
-  onChangeVideoB(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdB + AUTOPLAY})
-  }
-  onChangeVideoC(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdC + AUTOPLAY})
-  }
-  onChangeVideoD(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdD + AUTOPLAY})
-  }
-  onChangeVideoE(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdE + AUTOPLAY})
-  }
-  onChangeVideoF(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdF + AUTOPLAY})
-  }
-  onChangeVideoG(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdG + AUTOPLAY})
-  }
-  onChangeVideoH(e) {
-  	e.preventDefault()
-  	this.setState({videoId: videoIdH + AUTOPLAY})
-  }
+
+  getVideos = async () => {
+    this.setState({
+      isLoading: true,
+    });
+
+    try {
+      const videos = [
+        {'id': '_7qCxuBylK4' },
+        {'id': '_yoR5hE8y4Y' },
+        {'id': 'uzAilH_UT1A' },
+        {'id': 'bgVz5fJeI40' },
+        {'id': 'hsfA4kTdltE' },
+        {'id': 'WIksma_8Ka4' },
+        {'id': 'c_yomf6U35A' },
+        {'id': 'VVS2tqpXiZ0' },
+        {'id': 'VadjvlvBDxE' },
+      ]
+
+      this.setState({
+        videos,
+      });
+    } catch(err) {
+      console.log('Videos err:', err);
+    }
+
+    this.setState({
+      isLoading: false,
+    });
+  };
 
   render() {
+    const { titulo, children } = this.props;
+    const { video, videos } = this.state;
+
     return (
 	    <div className="col-sm-12 text-center Azul">
-	    	<h2>{this.props.titulo}</h2>
-	     	{this.props.children}
-			  <Video videoId={this.state.videoId} />
-  			{/* <div className="owl-carousel" style={{padding:'25px 25px 0px'}}> */}
+	    	<h2>{titulo}</h2>
+	     	   {children}
+			  <Video video={video} />
+
         <OwlCarousel
           slideSpeed={300}
           items={4}
@@ -82,75 +85,20 @@ export default class Videos extends React.Component {
           style={{padding:'35px 25px 0px'}}
           autoPlay
           >
-          <div className="Itens">
-            <a href onClick={this.onChangeVideoH}>
-              <Item
-                  nome="Na era dos Dinossauros"
-                  id={videoIdH}
-              />
-            </a>
-          </div>
-          <div className="Itens">
-            <a href onClick={this.onChangeVideoG}>
-              <Item
-                  nome="Dia de chuva"
-                  id={videoIdG}
-              />
-            </a>
-          </div>
-          <div className="Itens">
-         	 	<a href onClick={this.onChangeVideoF}>
-  	       	 	<Item
-  	            	nome="Hora de dormir"
-  					      id={videoIdF}
-  	       	 	/>
-         	 	</a>
-         	</div>
-         	<div className="Itens">
-         	 	<a href onClick={this.onChangeVideoE}>
-  	       	 	<Item
-  	            	nome="Hora de dormir"
-  					id={videoIdE}
-  	       	 	/>
-         	 	</a>
-         	</div>
-         	<div className="Itens">
-         		<a href onClick={this.onChangeVideo}>
-  	       	 	<Item
-  	            	nome="Amigossauro"
-  					id={videoIdA}
-  	       	 	/>
-         	 	</a>
-         	</div>
-         	<div className="Itens">
-         	 	<a href onClick={this.onChangeVideoB}>
-  	       	 	<Item
-  	            	nome="Você parece um dinossauro"
-  					      id={videoIdB}
-  	       	 	/>
-         	 	</a>
-         	</div>
-         	<div className="Itens">
-         	 	<a href onClick={this.onChangeVideoC}>
-  	       	 	<Item
-  	            	nome="Cheirinho bom"
-  					      id={videoIdC}
-  	       	 	/>
-         	 	</a>
-         	</div>
-          <div className="Itens">
-         	 	<a href onClick={this.onChangeVideoD}>
-  	       	 	<Item
-  	            	nome="Cheirinho bom"
-  					      id={videoIdD}
-  	       	 	/>
-         	 	</a>
-         	</div>
+            {videos.map((video, key) => {
+              return (
+                <div className="Itens" key={video.id}>
+     			       	 	<Item
+                      key={video.id}
+   			            	nome="Hora de dormir"
+   							      video={video}
+                      onClick={this.onChangeVideo}
+     			       	 	/>
+   		       	</div>)
+            })}
         </OwlCarousel>
   			{/* </div> */}
 	    </div>
     );
   }
 }
-Videos.propTypes = { initial: React.PropTypes.string };
-Videos.defaultProps = { initial: videoIdH };

@@ -8,9 +8,9 @@ import { browserHistory } from 'react-router';
 // Sign in with Facebook
 export function facebookLogin() {
   const facebook = {
-    url: 'http://amigossauro.com.br/auth/facebook',
+    url: 'https://amigossauro.com.br/auth/facebook',
     clientId: '1080139255398077',
-    redirectUri: 'http://amigossauro.com.br/auth/facebook/callback',
+    redirectUri: 'https://amigossauro.com.br/auth/facebook/callback',
     authorizationUrl: 'https://www.facebook.com/v2.7/dialog/oauth',
     scope: 'email,user_location',
     width: 580,

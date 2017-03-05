@@ -2,12 +2,17 @@ import React from 'react';
 
 class Item extends React.Component {
   render() {
+    const { video } = this.props;
+
     return (
-		<img
-			src={'http://img.youtube.com/vi/' + this.props.id + '/mqdefault.jpg'}
-			alt={ this.props.nome } 
-			width="100%"
-		/>
+      <div style={{cursor: 'pointer'}} onClick={() => this.props.onClick(video)}>
+        <img
+    			src={'//img.youtube.com/vi/' + video.id + '/mqdefault.jpg'}
+    			alt={ video.id }
+    			width="100%"
+    		/>
+      </div>
+
     );
   }
 
