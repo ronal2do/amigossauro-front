@@ -1,0 +1,12 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "backstop_data/html_report/bower_components/angular-bootstrap/package.json",
+        "backstop_data/html_report/bower_components/angular/package.json",
+        "backstop_data/html_report/bower_components/bootstrap-css-only/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
